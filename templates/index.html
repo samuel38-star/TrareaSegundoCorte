@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="/static/style.css">
     <meta charset="UTF-8">
     <title>Inventario</title>
 </head>
@@ -27,7 +28,14 @@
             <td>{{ p.valoru }}</td>
             <td>{{ p.existencias }}</td>
             <td>{{ p.valor_total }}</td>
-            <td>{{ p.estado }}</td>
+            <td class="
+                {% if p.estado == 'Bajo' %}bajo
+                {% elif p.estado == 'Medio' %}medio
+                {% else %}alto
+                {% endif %}
+">
+                {{ p.estado }}
+</td>
         </tr>
         {% endfor %}
     </tbody>
