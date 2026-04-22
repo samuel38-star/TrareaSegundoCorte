@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -6,8 +7,8 @@ from app.services import calcular_valor_total, calcular_estado
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "../templates"))
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
@@ -30,7 +31,10 @@ def home(request: Request):
             "estado": calcular_estado(p)
         })
     print(resultado)
-    return templates.TemplateResponse("index.html", {
-        "request": request,
+    return templates.TemplateResponse(
+    request,
+    "index.html",
+    {
         "productos": resultado
-    })
+    }
+)
