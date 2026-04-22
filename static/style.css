@@ -1,72 +1,15 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-/* Contenedor principal */
-.container {
-    width: 80%;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Título */
-h1 {
+    font-family: Arial;
     text-align: center;
-    margin-bottom: 30px;
-    color: #444;
 }
 
-/* Tabla */
 table {
-    width: 100%;
+    margin: auto;
     border-collapse: collapse;
-    overflow: hidden;
-    border-radius: 10px;
+    width: 80%;
 }
 
-/* Encabezado */
-th {
-    background: #667eea;
-    color: white;
-    padding: 12px;
-}
-
-/* Celdas */
-td {
-    padding: 12px;
-    text-align: center;
-}
-
-/* Filas */
-tr:nth-child(even) {
-    background: #f4f4f4;
-}
-
-/* Hover */
-tr:hover {
-    background: #e0e7ff;
-    transition: 0.3s;
-}
-
-/* Estados */
-.bajo {
-    color: red;
-    font-weight: bold;
-}
-
-.medio {
-    color: orange;
-    font-weight: bold;
-}
-
-.alto {
-    color: green;
-    font-weight: bold;
+th, td {
+    border: 1px solid #bc2121;
+    padding: 10px;
 }

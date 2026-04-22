@@ -1,8 +1,14 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+</head>
+<body>
 
-<h1>Inventario de Productos</h1>
+<h1>Inventario</h1>
 
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>Código</th>
@@ -21,17 +27,11 @@
             <td>{{ p.valoru }}</td>
             <td>{{ p.existencias }}</td>
             <td>{{ p.valor_total }}</td>
-            <td class="
-                {% if p.estado == 'Bajo' %}bajo
-                {% elif p.estado == 'Medio' %}medio
-                {% else %}alto
-                {% endif %}
-            ">
-                {{ p.estado }}
-            </td>
+            <td>{{ p.estado }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
-</div>
+</body>
+</html>
