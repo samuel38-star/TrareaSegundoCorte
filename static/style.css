@@ -1,15 +1,39 @@
 body {
     font-family: Arial;
     text-align: center;
+    background-color: #f5f7fa;
 }
 
+/* Tabla */
 table {
     margin: auto;
     border-collapse: collapse;
     width: 80%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-th, td {
-    border: 1px solid #bc2121;
+/* Encabezado */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+}
+
+/* Celdas */
+td {
+    border: 1px solid #ddd;
     padding: 10px;
+}
+
+/* Filas alternas */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover */
+tr:hover {
+    background-color: #d6eaff;
+    transition: 0.2s;
 }
