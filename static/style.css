@@ -1,7 +1,7 @@
 body {
     font-family: Arial;
     text-align: center;
-    background-color: #f5f7fa;
+    background-color: #0d60dc;
 }
 
 /* Tabla */
@@ -9,7 +9,7 @@ table {
     margin: auto;
     border-collapse: collapse;
     width: 80%;
-    background-color: white;
+    background-color: rgb(46, 19, 220);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -23,18 +23,18 @@ th {
 
 /* Celdas */
 td {
-    border: 1px solid #ddd;
+    border: 1px solid #ee0f0f;
     padding: 10px;
 }
 
 /* Filas alternas */
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #7256d7;
 }
 
 /* Hover */
 tr:hover {
-    background-color: #d6eaff;
+    background-color: #1275df;
     transition: 0.2s;
 }
 
