@@ -1,7 +1,7 @@
 body {
     font-family: Arial;
     text-align: center;
-    background-color: #0d60dc;
+    background-color: #fdb9df;
 }
 
 /* Tabla */
@@ -9,27 +9,27 @@ table {
     margin: auto;
     border-collapse: collapse;
     width: 80%;
-    background-color: rgb(46, 19, 220);
+    background-color: #f3f2f8;
     border-radius: 8px;
     overflow: hidden;
 }
 
 /* Encabezado */
 th {
-    background-color: #4CAF50;
+    background-color: #131413;
     color: white;
     padding: 12px;
 }
 
 /* Celdas */
 td {
-    border: 1px solid #ee0f0f;
+    border: 1px solid #0e0101;
     padding: 10px;
 }
 
 /* Filas alternas */
 tr:nth-child(even) {
-    background-color: #7256d7;
+    background-color: #f1f0f5;
 }
 
 /* Hover */
