@@ -37,3 +37,18 @@ tr:hover {
     background-color: #d6eaff;
     transition: 0.2s;
 }
+
+.bajo {
+    color: red;
+    font-weight: bold;
+}
+
+.medio {
+    color: orange;
+    font-weight: bold;
+}
+
+.alto {
+    color: green;
+    font-weight: bold;
+}
