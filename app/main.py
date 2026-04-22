@@ -29,7 +29,7 @@ def home(request: Request):
             "valor_total": calcular_valor_total(p),
             "estado": calcular_estado(p)
         })
-
+    print(resultado)
     return templates.TemplateResponse("index.html", {
         "request": request,
         "productos": resultado
