@@ -1,0 +1,54 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background-color: #fdb9df;
+}
+
+/* Tabla */
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #f3f2f8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Encabezado */
+th {
+    background-color: #131413;
+    color: white;
+    padding: 12px;
+}
+
+/* Celdas */
+td {
+    border: 1px solid #0e0101;
+    padding: 10px;
+}
+
+/* Filas alternas */
+tr:nth-child(even) {
+    background-color: #f1f0f5;
+}
+
+/* Hover */
+tr:hover {
+    background-color: #1275df;
+    transition: 0.2s;
+}
+
+.bajo {
+    color: red;
+    font-weight: bold;
+}
+
+.medio {
+    color: orange;
+    font-weight: bold;
+}
+
+.alto {
+    color: green;
+    font-weight: bold;
+}

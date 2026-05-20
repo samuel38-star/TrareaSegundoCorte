@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+</head>
+<body>
+
+<h1>Inventario</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Valor Unidad</th>
+            <th>Existencias</th>
+            <th>Valor Total</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in productos %}
+        <tr>
+            <td>{{ p.codigo }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.valoru }}</td>
+            <td>{{ p.existencias }}</td>
+            <td>{{ p.valor_total }}</td>
+            <td class="
+                {% if p.estado == 'Bajo' %}bajo
+                {% elif p.estado == 'Medio' %}medio
+                {% else %}alto
+                {% endif %}
+">
+                {{ p.estado }}
+</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

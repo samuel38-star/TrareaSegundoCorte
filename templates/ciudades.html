@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hoteles por Ciudad</title>
+</head>
+
+<body>
+
+    <h1>Hoteles en {{ ciudad }}</h1>
+
+    {% for hotel in hoteles %}
+
+        <div>
+
+            <h2>{{ hotel.nombre }}</h2>
+
+            <p>Código: {{ hotel.codigo }}</p>
+
+            <p>Ciudad: {{ hotel.ciudad }}</p>
+
+            <p>Valor por noche: {{ hotel.valornoche }}</p>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+</body>
+
+</html>

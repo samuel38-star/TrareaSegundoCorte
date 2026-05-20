@@ -19,7 +19,7 @@ class Cliente(SQLModel, table=True):
     nombre: str
     correo: str
 
-postgres_url = ("postgresql://postgres:1234@localhost:12345/ventas")
+postgres_url = ("postgresql://postgres:123@localhost:12345/ventas")
 
 engine = create_engine(postgres_url,echo=True)
 
