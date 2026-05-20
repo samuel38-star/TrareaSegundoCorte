@@ -57,39 +57,33 @@ def inicio(request: Request):
 
 
 @app.get("/hotel/{codigo}")
-def buscar_hotel(request: Request,codigo: int):
+def buscar_hotel(codigo: int):
 
     with Session(engine) as session:
-        hotel = session.get(Hotel,codigo)
+
+        hotel = session.get(Hotel, codigo)
 
         if not hotel:
-            raise HTTPException(status_code=404,detail="Hotel no encontrado")
+            raise HTTPException(
+                status_code=404,
+                detail="Hotel no encontrado"
+            )
 
-        return templates.TemplateResponse(
-
-            request=request,
-
-            name="hotel.html",
-
-            context={"hotel": hotel}
-        )
+        return hotel
 
 
 @app.get("/ciudad/{ciudad}")
-def buscar_ciudad(request: Request,ciudad: str):
+def buscar_ciudad(ciudad: str):
 
     with Session(engine) as session:
 
-        hoteles = session.exec(select(Hotel).where(Hotel.ciudad == ciudad)).all()
-
-        return templates.TemplateResponse(
-
-            request=request,
-
-            name="ciudad.html",
-
-            context={"hoteles": hoteles,"ciudad": ciudad}
+        hoteles = session.exec(
+            select(Hotel).where(
+                Hotel.ciudad == ciudad
             )
+        ).all()
+
+        return hoteles
 
 
 @app.post("/hotel")
