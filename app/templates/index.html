@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <link rel="stylesheet" href="/static/style.css">
-    <meta charset="UTF-8">
-    <title>Inventario</title>
+    <title>Hoteles</title>
 </head>
+
 <body>
 
-<h1>Inventario</h1>
+    <h1>Lista de Hoteles</h1>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Nombre</th>
-            <th>Valor Unidad</th>
-            <th>Existencias</th>
-            <th>Valor Total</th>
-            <th>Estado</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for p in productos %}
-        <tr>
-            <td>{{ p.codigo }}</td>
-            <td>{{ p.nombre }}</td>
-            <td>{{ p.valoru }}</td>
-            <td>{{ p.existencias }}</td>
-            <td>{{ p.valor_total }}</td>
-            <td class="
-                {% if p.estado == 'Bajo' %}bajo
-                {% elif p.estado == 'Medio' %}medio
-                {% else %}alto
-                {% endif %}
-">
-                {{ p.estado }}
-</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+    {% for hotel in hoteles %}
+
+        <div>
+
+            <h2>{{ hotel.nombre }}</h2>
+
+            <p>Código: {{ hotel.codigo }}</p>
+
+            <p>Ciudad: {{ hotel.ciudad }}</p>
+
+            <p>Valor por noche: {{ hotel.valornoche }}</p>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
+
+    <h1>Lista de Clientes</h1>
+
+    {% for cliente in clientes %}
+
+        <div>
+
+            <h2>{{ cliente.nombre }}</h2>
+
+            <p>ID: {{ cliente.id }}</p>
+
+            <p>Correo: {{ cliente.correo }}</p>
+
+        </div>
+
+        <hr>
+
+    {% endfor %}
 
 </body>
+
 </html>
