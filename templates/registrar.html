@@ -2,62 +2,84 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <title>Registrar Paciente</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="stylesheet" href="/static/estilos.css">
+
 </head>
 
 <body>
 
-    <h1>Registrar Paciente</h1>
+    <div class="contenedor">
 
-    <form action="/guardar" method="post">
+        <h1>Registrar Paciente</h1>
 
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required>
+        <div class="formulario">
 
-        <br><br>
+            <form action="/guardar" method="post">
 
-        <label>Enfermedad:</label>
-        <input type="text" name="enfermedad" required>
+                <label>Nombre:</label>
 
-        <br><br>
+                <input
+                    type="text"
+                    name="nombre"
+                    required
+                >
 
-        <label>Prioridad:</label>
+                <label>Enfermedad:</label>
 
-        <select name="prioridad">
+                <input
+                    type="text"
+                    name="enfermedad"
+                    required
+                >
 
-            <option value="1">
-                1 - Urgente
-            </option>
+                <label>Prioridad:</label>
 
-            <option value="2">
-                2 - Media
-            </option>
+                <select name="prioridad">
 
-            <option value="3">
-                3 - Baja
-            </option>
+                    <option value="1">
+                        1 - Urgente
+                    </option>
 
-        </select>
+                    <option value="2">
+                        2 - Media
+                    </option>
 
-        <br><br>
+                    <option value="3">
+                        3 - Baja
+                    </option>
 
-        <button type="submit">
-            Registrar
-        </button>
+                </select>
 
-    </form>
+                <br>
 
-    <br>
+                <button type="submit">
+                    Registrar
+                </button>
 
-    {% if mensaje %}
-        <p>{{ mensaje }}</p>
-    {% endif %}
+            </form>
 
-    <a href="/">
-        <button>Volver al Inicio</button>
-    </a>
+            {% if mensaje %}
+
+                <p class="mensaje">
+                    {{ mensaje }}
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button>Volver al Inicio</button>
+        </a>
+
+    </div>
 
 </body>
 

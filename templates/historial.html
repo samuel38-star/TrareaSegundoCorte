@@ -2,32 +2,46 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <title>Historial</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="stylesheet" href="/static/estilos.css">
+
 </head>
 
 <body>
 
-    <h1>Historial de Acciones</h1>
+    <div class="contenedor">
 
-    <ul>
+        <h1>Historial de Acciones</h1>
 
-        {% for accion in historial %}
+        <div class="lista-historial">
 
-            <li>
-                {{ accion }}
-            </li>
+            <ul>
 
-            <br>
+                {% for accion in historial %}
 
-        {% endfor %}
+                    <li>
+                        {{ accion }}
+                    </li>
 
-    </ul>
+                {% endfor %}
 
-    <a href="/">
-        <button>Volver al Inicio</button>
-    </a>
+            </ul>
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button>
+                Volver al Inicio
+            </button>
+        </a>
+
+    </div>
 
 </body>
 

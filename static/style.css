@@ -1,54 +1,339 @@
 body {
-    font-family: Arial;
-    text-align: center;
-    background-color: #fdb9df;
+    background:     #F4F8FB;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* Tabla */
-table {
+/* ========================= */
+/* CONTENEDOR GENERAL */
+/* ========================= */
+
+.contenedor {
+    width: 850px;
     margin: auto;
-    border-collapse: collapse;
-    width: 80%;
-    background-color: #f3f2f8;
-    border-radius: 8px;
-    overflow: hidden;
+    text-align: center;
+    padding-top: 40px;
 }
 
-/* Encabezado */
-th {
-    background-color: #131413;
+/* ========================= */
+/* TITULOS */
+/* ========================= */
+
+h1 {
+    color: #0B3D5C;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #1F6F8B;
+}
+
+p {
+    color: #4B5563;
+    font-size: 18px;
+}
+
+/* ========================= */
+/* IMAGENES */
+/* ========================= */
+
+.imagen {
+    width: 520px;
+    border-radius: 18px;
+    margin: 25px;
+}
+
+/* ========================= */
+/* BOTONES */
+/* ========================= */
+
+button {
+    background: #1F6F8B;
     color: white;
-    padding: 12px;
-}
-
-/* Celdas */
-td {
-    border: 1px solid #0e0101;
-    padding: 10px;
-}
-
-/* Filas alternas */
-tr:nth-child(even) {
-    background-color: #f1f0f5;
-}
-
-/* Hover */
-tr:hover {
-    background-color: #1275df;
+    border: none;
+    padding: 14px 25px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.bajo {
+button:hover {
+    background: #0B3D5C;
+    transform: scale(1.03);
+}
+
+/* ========================= */
+/* FORMULARIOS */
+/* ========================= */
+
+.formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+input,
+select {
+    width: 90%;
+    padding: 14px;
+    margin: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* ========================= */
+/* TABLAS */
+/* ========================= */
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: #0B3D5C;
+    color: white;
+    padding: 14px;
+    font-size: 17px;
+}
+
+td {
+    border: 1px solid #E5E7EB;
+    padding: 12px;
+    font-size: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #F9FAFB;
+}
+
+tr:hover {
+    background-color: #D6EEF8;
+    transition: 0.2s;
+}
+
+/* ========================= */
+/* TARJETAS */
+/* ========================= */
+
+.tarjeta {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 500px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.tarjeta h2 {
+    color: #1F6F8B;
+}
+
+/* ========================= */
+/* MENSAJES */
+/* ========================= */
+
+.mensaje {
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.error {
     color: red;
     font-weight: bold;
 }
 
-.medio {
-    color: orange;
+/* ========================= */
+/* PRIORIDADES */
+/* ========================= */
+
+.prioridad-alta {
+    color: red;
     font-weight: bold;
+    font-size: 17px;
 }
 
-.alto {
+.prioridad-media {
+    color: orange;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.prioridad-baja {
     color: green;
     font-weight: bold;
+    font-size: 17px;
+}
+
+/* ========================= */
+/* HISTORIAL */
+/* ========================= */
+
+.lista-historial {
+    background: white;
+    width: 70%;
+    margin: auto;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.lista-historial li {
+    margin: 12px 0;
+    font-size: 17px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    .contenedor {
+        width: 95%;
+    }
+
+    .formulario {
+        width: 90%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .imagen {
+        width: 95%;
+    }
+}
+
+/* ========================= */
+/* COLA DE ATENCION */
+/* ========================= */
+
+.cola-container {
+
+    width: 100%;
+    margin-top: 30px;
+
+}
+
+.paciente-card {
+
+    background: white;
+
+    width: 85%;
+
+    margin: 20px auto;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+.paciente-card:hover {
+
+    transform: scale(1.02);
+
+}
+
+.paciente-info {
+
+    text-align: left;
+
+}
+
+.paciente-info h2 {
+
+    margin: 0;
+
+    color: #0B3D5C;
+}
+
+.paciente-info p {
+
+    margin-top: 10px;
+
+    color: #4B5563;
+}
+
+/* ========================= */
+/* BADGES */
+/* ========================= */
+
+.badge {
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+}
+
+.urgente {
+
+    background: #DC2626;
+}
+
+.media {
+
+    background: #F59E0B;
+}
+
+.baja {
+
+    background: #16A34A;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .paciente-card {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .paciente-info {
+
+        text-align: center;
+    }
+
 }

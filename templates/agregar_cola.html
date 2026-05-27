@@ -2,42 +2,56 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
+
     <title>Agregar a la Cola</title>
-    <link rel="stylesheet" href="/static/style.css">
+
+    <link rel="stylesheet" href="/static/estilos.css">
+
 </head>
 
 <body>
 
-    <h1>Agregar Paciente a la Cola</h1>
+    <div class="contenedor">
 
-    <form action="/agregar_cola" method="post">
+        <h1>Agregar Paciente a la Cola</h1>
 
-        <label>Nombre del Paciente:</label>
+        <div class="formulario">
 
-        <input
-            type="text"
-            name="nombre"
-            required
-        >
+            <form action="/agregar_cola" method="post">
 
-        <br><br>
+                <label>Nombre del Paciente</label>
 
-        <button type="submit">
-            Agregar a la Cola
-        </button>
+                <input
+                    type="text"
+                    name="nombre"
+                    required
+                >
 
-    </form>
+                <button type="submit">
+                    Agregar a la Cola
+                </button>
 
-    <br>
+            </form>
 
-    {% if mensaje %}
-        <p>{{ mensaje }}</p>
-    {% endif %}
+            {% if mensaje %}
 
-    <a href="/">
-        <button>Volver al Inicio</button>
-    </a>
+                <p class="mensaje">
+                    {{ mensaje }}
+                </p>
+
+            {% endif %}
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button>Volver al Inicio</button>
+        </a>
+
+    </div>
 
 </body>
 
