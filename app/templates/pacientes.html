@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Pacientes registrados</h1>
+
+        {% if pacientes %}
+            {% for p in pacientes %}
+                <div class="tarjeta">
+                    <h2>{{ p.nombre }}</h2>
+                    <p><strong>Síntomas:</strong> {{ p.enfermedad }}</p>
+                    <p><strong>Prioridad:</strong> {{ p.prioridad }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay pacientes registrados.</p>
+        {% endif %}
+
+        <a href="/">
+            <button>Volver al inicio</button>
+        </a>
+    </div>
+
+</body>
+</html>

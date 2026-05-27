@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar paciente</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Registrar paciente</h1>
+
+        <form action="/guardar" method="post" class="formulario">
+
+            <input 
+                type="text" 
+                name="nombre" 
+                placeholder="Nombre del paciente" 
+                required
+            >
+
+            <input 
+                type="text" 
+                name="enfermedad" 
+                placeholder="Síntomas o enfermedad" 
+                required
+            >
+
+            <select name="prioridad" required>
+                <option value="1">1 - Urgente</option>
+                <option value="2">2 - Media</option>
+                <option value="3">3 - Baja</option>
+            </select>
+
+            <button type="submit">Guardar paciente</button>
+        </form>
+
+        {% if mensaje %}
+            <p class="mensaje">{{ mensaje }}</p>
+        {% endif %}
+
+        <a href="/">
+            <button>Volver al inicio</button>
+        </a>
+    </div>
+
+</body>
+</html>

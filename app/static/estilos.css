@@ -1,0 +1,79 @@
+body {
+    background: #F4F8FB;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    width: 750px;
+    margin: auto;
+    text-align: center;
+    padding-top: 40px;
+}
+
+h1 {
+    color: #0B3D5C;
+    font-size: 36px;
+}
+
+p {
+    color: #4B5563;
+    font-size: 18px;
+}
+
+.imagen {
+    width: 520px;
+    border-radius: 18px;
+    margin: 25px;
+}
+
+button {
+    background: #1F6F8B;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0B3D5C;
+}
+
+.formulario {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+    margin: auto;
+}
+
+input, select {
+    width: 90%;
+    padding: 14px;
+    margin: 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 500px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.tarjeta h2 {
+    color: #1F6F8B;
+}
+
+.mensaje {
+    color: green;
+    font-weight: bold;
+}

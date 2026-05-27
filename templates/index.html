@@ -1,50 +1,28 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
-    <title>Hoteles</title>
+    <meta charset="UTF-8">
+    <title>Hospital</title>
+    <link rel="stylesheet" href="/static/estilos.css">
 </head>
-
 <body>
 
-    <h1>Lista de Hoteles</h1>
+    <div class="contenedor">
+        <h1>Hospital Entre Venas & Sueños</h1>
+        <p>Sistema de gestión de pacientes</p>
 
-    {% for hotel in hoteles %}
-
-        <div>
-
-            <h2>{{ hotel.nombre }}</h2>
-
-            <p>Código: {{ hotel.codigo }}</p>
-
-            <p>Ciudad: {{ hotel.ciudad }}</p>
-
-            <p>Valor por noche: {{ hotel.valornoche }}</p>
-
-        </div>
-
-        <hr>
-
-    {% endfor %}
-
-    <h1>Lista de Clientes</h1>
-
-    {% for cliente in clientes %}
+        <img src="/static/hospital.jpeg" class="imagen">
 
         <div>
+            <a href="/registrar">
+                <button>Registrar paciente</button>
+            </a>
 
-            <h2>{{ cliente.nombre }}</h2>
-
-            <p>ID: {{ cliente.id }}</p>
-
-            <p>Correo: {{ cliente.correo }}</p>
-
+            <a href="/pacientes">
+                <button>Ver pacientes</button>
+            </a>
         </div>
-
-        <hr>
-
-    {% endfor %}
+    </div>
 
 </body>
-
 </html>
