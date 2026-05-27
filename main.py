@@ -74,14 +74,6 @@ def guardar(
 # AGREGAR A LA COLA
 # =========================
 
-@app.get("/agregar_cola")
-def vista_agregar_cola(request: Request):
-
-    return templates.TemplateResponse(
-        request=request,
-        name="agregar_cola.html"
-    )
-
 @app.post("/agregar_cola")
 def agregar_cola(
     request: Request,
@@ -98,24 +90,21 @@ def agregar_cola(
             )
         ).first()
 
-    if paciente:
+        if paciente:
 
-        cola_atencion.append(paciente)
+            paciente.en_cola = True
 
-        # Ordenar por prioridad
-        cola_atencion.sort(
-            key=lambda x: x.prioridad
-        )
+            session.add(paciente)
 
-        historial_acciones.append(
-            f"Paciente agregado a la cola: {paciente.nombre}"
-        )
+            session.commit()
 
-        mensaje = f"{paciente.nombre} agregado correctamente"
+            mensaje = (
+                f"{paciente.nombre} agregado correctamente"
+            )
 
-    else:
+        else:
 
-        mensaje = "Paciente no encontrado"
+            mensaje = "Paciente no encontrado"
 
     return templates.TemplateResponse(
         request=request,
@@ -132,16 +121,23 @@ def agregar_cola(
 @app.get("/pacientes")
 def ver_pacientes(request: Request):
 
-    cola_ordenada = sorted(
-        cola_atencion,
-        key=lambda x: x.prioridad
-    )
+    with Session(engine) as session:
+
+        pacientes = session.exec(
+
+            select(Paciente)
+
+            .where(Paciente.en_cola == True)
+
+            .order_by(Paciente.prioridad)
+
+        ).all()
 
     return templates.TemplateResponse(
         request=request,
         name="pacientes.html",
         context={
-            "pacientes": cola_ordenada
+            "pacientes": pacientes
         }
     )
 
@@ -154,24 +150,48 @@ def atender_paciente(request: Request):
 
     mensaje = "No hay pacientes en la cola"
 
-    if cola_atencion:
+    with Session(engine) as session:
 
-        paciente = cola_atencion.pop(0)
+        paciente = session.exec(
 
-        historial_acciones.append(
-            f"Paciente atendido: {paciente.nombre}"
-        )
+            select(Paciente)
 
-        mensaje = (
-            f"Paciente atendido correctamente: "
-            f"{paciente.nombre}"
-        )
+            .where(Paciente.en_cola == True)
+
+            .order_by(Paciente.prioridad)
+
+        ).first()
+
+        if paciente:
+
+            paciente.en_cola = False
+
+            paciente.atendido = True
+
+            session.add(paciente)
+
+            session.commit()
+
+            mensaje = (
+                f"Paciente atendido correctamente: "
+                f"{paciente.nombre}"
+            )
+
+        pacientes = session.exec(
+
+            select(Paciente)
+
+            .where(Paciente.en_cola == True)
+
+            .order_by(Paciente.prioridad)
+
+        ).all()
 
     return templates.TemplateResponse(
         request=request,
         name="pacientes.html",
         context={
-            "pacientes": cola_atencion,
+            "pacientes": pacientes,
             "mensaje": mensaje
         }
     )
@@ -183,10 +203,20 @@ def atender_paciente(request: Request):
 @app.get("/historial")
 def historial(request: Request):
 
+    with Session(engine) as session:
+
+        historial = session.exec(
+
+            select(Paciente)
+
+            .where(Paciente.atendido == True)
+
+        ).all()
+
     return templates.TemplateResponse(
         request=request,
         name="historial.html",
         context={
-            "historial": historial_acciones
+            "historial": historial
         }
     )
