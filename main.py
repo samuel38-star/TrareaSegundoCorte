@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from sqlmodel import Session, select
+from models import Paciente, HistorialAccion
 
 from database import engine, crear_db
 from models import Paciente
@@ -73,7 +74,13 @@ def guardar(
 # =========================
 # AGREGAR A LA COLA
 # =========================
+@app.get("/agregar_cola")
+def vista_agregar_cola(request: Request):
 
+    return templates.TemplateResponse(
+        request=request,
+        name="agregar_cola.html"
+    )
 @app.post("/agregar_cola")
 def agregar_cola(
     request: Request,
@@ -90,21 +97,33 @@ def agregar_cola(
             )
         ).first()
 
-        if paciente:
+        if paciente is not None:
 
             paciente.en_cola = True
+
+            accion = HistorialAccion(
+                descripcion=(
+                    f"{paciente.nombre} ingresó a la cola"
+                )
+            )
+
+            session.add(accion)
 
             session.add(paciente)
 
             session.commit()
 
             mensaje = (
-                f"{paciente.nombre} agregado correctamente"
+                f"{paciente.nombre} fue agregado "
+                f"a la cola correctamente"
             )
 
         else:
 
-            mensaje = "Paciente no encontrado"
+            mensaje = (
+                "No existe un paciente "
+                "con ese nombre"
+            )
 
     return templates.TemplateResponse(
         request=request,
@@ -113,7 +132,6 @@ def agregar_cola(
             "mensaje": mensaje
         }
     )
-
 # =========================
 # VER COLA DE ATENCION
 # =========================
@@ -140,7 +158,6 @@ def ver_pacientes(request: Request):
             "pacientes": pacientes
         }
     )
-
 # =========================
 # ATENDER PACIENTE
 # =========================
@@ -167,6 +184,14 @@ def atender_paciente(request: Request):
             paciente.en_cola = False
 
             paciente.atendido = True
+
+            accion = HistorialAccion(
+                descripcion=(
+                    f"{paciente.nombre} fue atendido"
+                )
+            )
+
+            session.add(accion)
 
             session.add(paciente)
 
@@ -205,18 +230,15 @@ def historial(request: Request):
 
     with Session(engine) as session:
 
-        historial = session.exec(
-
-            select(Paciente)
-
-            .where(Paciente.atendido == True)
-
+        acciones = session.exec(
+            select(HistorialAccion)
+            .order_by(HistorialAccion.fecha.desc())
         ).all()
 
     return templates.TemplateResponse(
         request=request,
         name="historial.html",
         context={
-            "historial": historial
+            "acciones": acciones
         }
     )

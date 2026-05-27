@@ -7,7 +7,7 @@
 
     <title>Historial</title>
 
-    <link rel="stylesheet" href="/static/estilos.css">
+    <link rel="stylesheet" href="/static/style.css">
 
 </head>
 
@@ -21,10 +21,18 @@
 
             <ul>
 
-                {% for accion in historial %}
+                {% for accion in acciones %}
 
                     <li>
-                        {{ accion }}
+
+                        {{ accion.descripcion }}
+
+                        <br>
+
+                        <small>
+                            {{ accion.fecha }}
+                        </small>
+
                     </li>
 
                 {% endfor %}
