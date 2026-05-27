@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Pacientes</title>
-    <link rel="stylesheet" href="/static/estilos.css">
+    <title>Cola de Atención</title>
 </head>
+
 <body>
 
-    <div class="contenedor">
-        <h1>Pacientes registrados</h1>
+    <h1>Cola de Atención</h1>
 
-        {% if pacientes %}
-            {% for p in pacientes %}
-                <div class="tarjeta">
-                    <h2>{{ p.nombre }}</h2>
-                    <p><strong>Síntomas:</strong> {{ p.enfermedad }}</p>
-                    <p><strong>Prioridad:</strong> {{ p.prioridad }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No hay pacientes registrados.</p>
-        {% endif %}
+    {% if mensaje %}
+        <h3>{{ mensaje }}</h3>
+    {% endif %}
 
-        <a href="/">
-            <button>Volver al inicio</button>
-        </a>
-    </div>
+    <ul>
+
+        {% for paciente in pacientes %}
+
+            <li>
+
+                <strong>
+                    {{ paciente.nombre }}
+                </strong>
+
+                -
+
+                {{ paciente.enfermedad }}
+
+                -
+
+                Prioridad:
+                {{ paciente.prioridad }}
+
+            </li>
+
+            <br>
+
+        {% endfor %}
+
+    </ul>
+
+    <form action="/atender" method="post">
+
+        <button type="submit">
+            Atender Siguiente Paciente
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="/">
+        <button>Volver al Inicio</button>
+    </a>
 
 </body>
+
 </html>
