@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Historial</title>
+
+    <link rel="stylesheet" href="/static/estilos.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Historial de Acciones</h1>
+
+        <div class="lista-historial">
+
+            <ul>
+
+                {% for accion in acciones %}
+
+                    <li>
+
+                        {{ accion.descripcion }}
+
+                        <br>
+
+                        <small>
+                            {{ accion.fecha }}
+                        </small>
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        <br>
+
+        <a href="/">
+            <button>
+                Volver al Inicio
+            </button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>

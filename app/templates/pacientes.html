@@ -1,31 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Pacientes</title>
+
+    <title>Cola de Atención</title>
+
     <link rel="stylesheet" href="/static/estilos.css">
+
 </head>
+
 <body>
 
     <div class="contenedor">
-        <h1>Pacientes registrados</h1>
 
-        {% if pacientes %}
-            {% for p in pacientes %}
-                <div class="tarjeta">
-                    <h2>{{ p.nombre }}</h2>
-                    <p><strong>Síntomas:</strong> {{ p.enfermedad }}</p>
-                    <p><strong>Prioridad:</strong> {{ p.prioridad }}</p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No hay pacientes registrados.</p>
+        <h1>Cola de Atención</h1>
+
+        {% if mensaje %}
+
+            <p class="mensaje">
+                {{ mensaje }}
+            </p>
+
         {% endif %}
 
+        <!-- CONTENEDOR DE PACIENTES -->
+
+        <div class="cola-container">
+
+            {% for paciente in pacientes %}
+
+                <div class="paciente-card">
+
+                    <div class="paciente-info">
+
+                        <h2>
+                            {{ paciente.nombre }}
+                        </h2>
+
+                        <p>
+
+                            <strong>Enfermedad:</strong>
+
+                            {{ paciente.enfermedad }}
+
+                        </p>
+
+                    </div>
+
+                    <div class="paciente-prioridad">
+
+                        {% if paciente.prioridad == 1 %}
+
+                            <span class="badge urgente">
+                                Prioridad 1 - Urgente
+                            </span>
+
+                        {% elif paciente.prioridad == 2 %}
+
+                            <span class="badge media">
+                                Prioridad 2 - Media
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge baja">
+                                Prioridad 3 - Baja
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        <br>
+
+        <form action="/atender" method="post">
+
+            <button type="submit">
+                Atender Siguiente Paciente
+            </button>
+
+        </form>
+
+        <br>
+
         <a href="/">
-            <button>Volver al inicio</button>
+            <button>
+                Volver al Inicio
+            </button>
         </a>
+
     </div>
 
 </body>
+
 </html>
